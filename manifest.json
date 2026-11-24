@@ -1,0 +1,59 @@
+{
+  "manifest_version": 2,
+  "name": "nur1k_2§",
+  "version": "1.0.4",
+  "description": "30 записей §2: исправлено сканирование Wayground, локальный подбор и диагностика ошибок.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "nur1k-2section-independent-2026@study-helper.example",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteContent",
+          "authenticationInfo"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "https://wayground.com/*",
+    "https://*.wayground.com/*",
+    "https://quizizz.com/*",
+    "https://*.quizizz.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "answer_bank.js",
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "icon-48.png",
+    "default_title": "nur1k_2§ — настройки",
+    "default_popup": "settings.html"
+  },
+  "icons": {
+    "48": "icon-48.png",
+    "96": "icon-96.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://wayground.com/*",
+        "https://*.wayground.com/*",
+        "https://quizizz.com/*",
+        "https://*.quizizz.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
