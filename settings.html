@@ -1,0 +1,27 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>nur1k_2§ — настройки</title><style>
+:root{font-family:system-ui,-apple-system,sans-serif;color-scheme:dark;color:#f6f0ff;background:#171322}*{box-sizing:border-box}
+body{margin:0;padding:19px 14px 30px;min-height:100vh;background:radial-gradient(circle at 5% 0%,#56457977,transparent 45%),#171322}
+main{max-width:510px;margin:auto}.header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.logo{display:grid;place-items:center;width:49px;height:49px;flex:none;border-radius:16px;font-size:26px;background:linear-gradient(140deg,#b5a4e8b0,#776ca780);border:1px solid #dbccff77}
+h1{font-size:23px;margin:0;letter-spacing:-.4px}.sub{font-size:12px;color:#bfb1d3;line-height:1.55;margin:7px 0 16px}
+.card{margin:13px 0;padding:18px 15px;border-radius:22px;border:1px solid #e6dbff3d;background:linear-gradient(130deg,#ffffff18,#a599c013 70%);box-shadow:inset 0 1px #fff2,0 9px 30px #0002;backdrop-filter:blur(12px)}
+h2{font-size:16px;margin:0 0 11px}label{display:block;font-size:13px;font-weight:650;margin:13px 0 7px}
+input[type="text"],input[type="password"]{width:100%;min-height:44px;border:1px solid #c7b6ef66;background:#191329dd;color:white;padding:11px;border-radius:12px;font-size:14px}
+input[type="range"]{width:100%;accent-color:#baa8ff}.line{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:12px 0}.line label{margin:0}
+input[type="checkbox"]{width:22px;height:22px;accent-color:#aa99ed;flex:none}.note{font-size:11px;line-height:1.55;color:#c7bbd6}
+button{width:100%;min-height:47px;border-radius:13px;margin-top:14px;font-weight:800;font-size:15px;background:linear-gradient(125deg,#ded3ff,#aa98e4);border:1px solid #f1e8ff99;color:#241a38}
+#message{font-size:12px;color:#b9ffd6;min-height:18px}#preview{padding:13px;border-radius:12px;background:#ffffff18;margin-top:10px;font-size:13px}
+</style></head><body><main>
+<div class="header"><div class="logo">✦</div><div><h1>nur1k_2§</h1><div class="sub" style="margin:3px 0 0">AnswerBank Edition • 1.0.4</div></div></div>
+<p class="sub">Отдельная версия для тренировки по истории тюрков. 30 записей из твоего списка. Сначала локальный поиск по альтернативным формулировкам и вариантам ответов, затем Gemini при сложном перефразировании.</p>
+<section class="card"><h2>📚 Поиск по базе</h2><div class="line"><label for="autoSolve">Автопоиск при смене вопроса</label><input id="autoSolve" type="checkbox" checked></div>
+<p class="note">Вопросы и варианты не нажимаются автоматически. Подсветка лишь показывает найденное соответствие.</p></section>
+<section class="card"><h2>✦ Смысловое сопоставление (необязательно)</h2><div class="line"><label for="semanticAI">Разрешить Gemini искать перефразированные вопросы</label><input id="semanticAI" type="checkbox" checked></div>
+<label for="apiKey">API-ключ Gemini</label><input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="Не нужен для точных совпадений">
+<label for="model">Название модели Gemini</label><input id="model" type="text" spellcheck="false" value="gemini-3.1-flash-lite">
+<p class="note">Ключ хранится только в этом расширении. Для вопросов, совпадающих с базой, интернет-запрос к Gemini не нужен. Для незнакомых формулировок текст вопроса, варианты и база отправляются Google Gemini. Возможны ошибки и ограничения API.</p></section>
+<section class="card"><h2>◉ Подсветка</h2><label for="visibility">Видимость обводки: <span id="percent">50%</span></label><input id="visibility" type="range" min="0" max="100" step="5" value="50"><div id="preview">Пример подсветки варианта ответа</div>
+<p class="note">0% полностью скрывает выделение, но результат остаётся в плавающей панели.</p></section>
+<button id="save">Сохранить настройки</button><p id="message" aria-live="polite"></p>
+<p class="note">Ответы взяты из присланного текста и не проверялись по учебнику. Если в базе ошибка, расширение может повторить её.</p>
+</main><script src="settings.js"></script></body></html>
